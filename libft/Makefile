@@ -104,7 +104,7 @@ $(DIR_GNL)/%.o : $(DIR_GNL)/%.c $(INC_GNL)
 
 
 
-start :	
+start :
 	@clear
 	@echo "$(COLOUR_BLUE)"
 	@echo "  __  __ _       _ _        _ _      _  _  ____  "
