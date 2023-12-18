@@ -24,7 +24,7 @@ void	sig_handler(int sig, siginfo_t *info, void *context)
 		exit(EXIT_FAILURE);
 	}
 	if (bit < 0 && !c)
-		ft_printf("\n\033[1;36mClient say : \033[0m");
+		ft_printf("\n\033[1;36mReceied from Client : \033[0m");
 	if (bit < 0)
 		bit = __CHAR_BIT__ * sizeof(c) - 1;
 	if (sig == SIGUSR1)
