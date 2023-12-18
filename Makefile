@@ -5,18 +5,21 @@ UTILS_OBJS	= $(UTILS_SRCS:.c=.o)
 HEADERS		= inc/minitalk.h
 
 CC			= cc -Wall -Werror -Wextra
-CC_FLAGS	= -Llibft -lft
+CC_FLAGS	= -Llibft
 INC = -I inc
 
 all:		libft server client
 
 libft:
-			@make -C libft
+			make -C libft
 
-server:		${HEADERS} utils $(SERVER_SRCS) 
+%.o:		%.c
+			$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+server:		utils.o ${HEADERS} $(SERVER_SRCS) 
 			$(CC) $(CFLAGS) $(SERVER_SRCS) $(UTILS_OBJS) $(INC) ./libft/Libft.a -o server
 
-client:		${HEADERS} utils $(CLIENT_SRCS)
+client:		utils.o ${HEADERS} $(CLIENT_SRCS)
 			$(CC) $(CFLAGS) $(CLIENT_SRCS) $(UTILS_OBJS) $(INC) ./libft/Libft.a -o client
 
 utils :		${HEADERS} $(UTILS_SRCS)
@@ -24,6 +27,7 @@ utils :		${HEADERS} $(UTILS_SRCS)
 
 clean:
 			@make clean -C libft
+			@rm -rf utils.o
 
 fclean:		clean
 			rm -rf client server
