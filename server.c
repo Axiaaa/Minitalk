@@ -14,9 +14,11 @@
 
 void	sig_handler(int sig, siginfo_t *info, void *context)
 {
-	static char	c = 0;
-	static int	bit = -1;
+	static char	c;
+	static int	bit;
 
+	c = 0;
+	bit = -1;
 	(void)context;
 	if (kill(info->si_pid, 0) < 0)
 	{
@@ -43,8 +45,7 @@ int	main(void)
 {
 	init_sig(SIGUSR1, &sig_handler);
 	init_sig(SIGUSR2, &sig_handler);
-    ft_printf("\033[1;33mServer PID: %d\033[0m\n", getpid());
+	ft_printf("\033[1;33mServer PID: %d\033[0m\n", getpid());
 	while (1)
 		sleep(1);
 }
-

@@ -74,11 +74,12 @@ int	ft_args_process(char c, va_list args)
 		return (write(1, "%", 1));
 	return (-1);
 }
+
 int	ft_printf(const char *format, ...)
 {
-	va_list args;
-	long count;
-	int temp;
+	va_list	args;
+	long	count;
+	int		temp;
 
 	va_start(args, format);
 	count = 0;

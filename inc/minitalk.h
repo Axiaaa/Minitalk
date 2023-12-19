@@ -13,9 +13,9 @@
 #ifndef MINITALK_H
 # define MINITALK_H
 
-#include "../libft/libft/libft.h"
-#include "../libft/ft_printf/ft_printf.h"
-#include <signal.h>
+# include "../libft/ft_printf/ft_printf.h"
+# include "../libft/libft/libft.h"
+# include <signal.h>
 
 void	init_sig(int sig, void (*handler)(int, siginfo_t *, void *));
 

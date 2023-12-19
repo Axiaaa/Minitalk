@@ -23,7 +23,8 @@ void	send_bits(char c, pid_t pid)
 	{
 		if (kill(pid, 0) < 0)
 		{
-			ft_printf("\033[1;31mERROR : cant send sig to pid : %d\033[0m\n", pid);
+			ft_printf("\033[1;31mERROR : cant send sig to pid : %d\033[0m\n",
+				pid);
 			exit(EXIT_FAILURE);
 		}
 		g_bit_control = 0;
