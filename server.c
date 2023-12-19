@@ -14,11 +14,9 @@
 
 void	sig_handler(int sig, siginfo_t *info, void *context)
 {
-	static char	c;
-	static int	bit;
+	static char	c = 0;
+	static int	bit = -1;
 
-	c = 0;
-	bit = -1;
 	(void)context;
 	if (kill(info->si_pid, 0) < 0)
 	{

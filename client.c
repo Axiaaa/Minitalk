@@ -81,5 +81,5 @@ int	main(int argc, char **argv)
 	}
 	send_str(argv[2], pid);
 	while (1)
-		sleep(1);
+		pause();
 }
